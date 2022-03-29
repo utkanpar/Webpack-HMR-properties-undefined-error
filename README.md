@@ -37,7 +37,7 @@ Uncaught TypeError: Cannot set properties of undefined (setting '1368')
 ```
 7. If you still dont see error, then edit `src/modules/super-content-block/super-content-block.view.tsx:37` and replace the string `'Sample comment: bar 123'` back to `'Sample comment: foo'` and save
 
-![Screenshot of the error](./error-screenshot.PNG)
+![Screenshot of the error](./error-screenshot.png)
 
 **NOTE:** I have seen this error even when appending / prepending / changing pre-existing value of the string, I've observed that the error does'nt always happen. If you don't observe the error, you can stop the server and try again with another `yarn start`. 
 

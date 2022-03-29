@@ -34,7 +34,7 @@ const renderAdditionalContent = (additionalContent: IContentBlockAdditionalConte
 };
 
 const ContentBlockView: React.FC<IContentBlockViewProps> = props => {
-    console.log('Sample comment: bar 123');
+    console.log('Sample comment: foo');
     const {
         contentBlockContainer,
         imageContainer,

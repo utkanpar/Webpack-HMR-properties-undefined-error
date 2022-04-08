@@ -7,7 +7,7 @@ This repo can be used to reproduce thge error reported in [webpack/webpack#14873
 Note: This environment is my environment where I observed the bug to occur, it isn't to say it's the only or most correct environment to reproduce the bug.
 
 * Windows 10
-* Node v16.14.2
+* Node v12.22.11
 * Yarn v1.22.4
 * Edge or Chrome
 * `webpack` 5.70.0

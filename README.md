@@ -17,7 +17,7 @@ Note: This environment is my environment where I observed the bug to occur, it i
 ## Steps to Reproduce
 
 1. Clone repo
-2. Run `yarn`
+2. Run `yarn` - make sure you have node 12 lts installed
 2. Run `yarn start`
 3. Visit <https://localhost:4000/modules?type=super-content-block>
 4. Open web developer console and observe everything is looking good

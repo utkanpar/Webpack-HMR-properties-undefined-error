@@ -52,7 +52,7 @@ export class ContentBlock extends React.PureComponent<ISuperContentBlockProps<{}
     );
 
     public render(): JSX.Element | null {
-        const { heading, paragraph, image, links, className, imageAriaLabel } = this.props.config;
+        const { heading, paragraph, links, className, imageAriaLabel } = this.props.config;
         const contentBlockTitle = heading && (
             <Msdyn365.Text
                 className='ms-content-block__title'
@@ -61,10 +61,7 @@ export class ContentBlock extends React.PureComponent<ISuperContentBlockProps<{}
                 editProps={{ onEdit: this.handleTextChange, requestContext: this.props.context.request }}
             />
         );
-        const imageProps = {
-            gridSettings: this.props.context.request.gridSettings ?? {},
-            imageSettings: image?.imageSettings
-        };
+
         const contentBlockLinks = links && ArrayExtensions.hasElements(links) && (
             <LinksComponent
                 {...{
@@ -83,22 +80,22 @@ export class ContentBlock extends React.PureComponent<ISuperContentBlockProps<{}
                 editProps={{ onEdit: this.handleParagraphChange, requestContext: this.props.context.request }}
             />
         );
-        const contentBlockImage = (
-            <Msdyn365.Image
-                {...image}
-                {...imageProps}
-                requestContext={this.props.context.request}
-                editProps={{
-                    key: this.props.config.image ?? {},
-                    requestContext: this.props.context.request,
-                    moduleType: this.props.typeName,
-                    imagePropertyName: 'image',
-                    moduleId: this.props.id,
-                    layout: (this.props.config as IContentBlockFullConfig).msdyn365__moduleLayout
-                }}
-                shouldSkipToMainImage
-            />
-        );
+        // const contentBlockImage = (
+        //     <Msdyn365.Image
+        //         {...image}
+        //         {...imageProps}
+        //         requestContext={this.props.context.request}
+        //         editProps={{
+        //             key: this.props.config.image ?? {},
+        //             requestContext: this.props.context.request,
+        //             moduleType: this.props.typeName,
+        //             imagePropertyName: 'image',
+        //             moduleId: this.props.id,
+        //             layout: (this.props.config as IContentBlockFullConfig).msdyn365__moduleLayout
+        //         }}
+        //         shouldSkipToMainImage
+        //     />
+        // );
 
         if (!contentBlockTitle && !contentBlockText && !contentBlockLinks) {
             this.props.context.telemetry.error('Content block content is empty, module wont render.');
@@ -108,7 +105,6 @@ export class ContentBlock extends React.PureComponent<ISuperContentBlockProps<{}
             ...this.props,
             title: contentBlockTitle,
             text: contentBlockText,
-            image: contentBlockImage,
             links: contentBlockLinks,
             moduleClass: this.props.config.className,
             contentBlockContainer: {
